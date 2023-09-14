@@ -1,0 +1,52 @@
+AWSTemplateVersion: "2023-09-13"
+Transform: AWS::Serverless-2023-09-13
+Description: >
+  scheduling
+
+  SAM Template for scheduling service
+
+Globals:
+  Function:
+    Timeout: 30
+
+Parameters:
+  environment:
+    Type: String
+  deploymentRole:
+    Type: String
+  lambdaRole:
+    Type: String
+  test_var:
+    Type: String
+
+Resources:
+  SchedulingApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: staging
+      Name: SchedulingApiGateway
+
+  SchedulingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${environment}_scheduling
+      Description: Handles scheduling events
+      CodeUri: src/
+      Handler: app.lambda_handler
+      Runtime: Python3.8
+      AutoPublishAlias: current
+      DeploymentsPreference:
+        Type: AllAtOnce
+        Role: !Ref deploymentRole
+      Environment:
+        Variables:
+          Test: !Ref test_var
+      Role: !Ref lambdaRole
+      Events:
+        SchedulingApiGetSchedule:
+          Type: Api
+          Properties:
+            Path: /schedule
+            Method: get
+            RestApiId:
+              Ref: SchedulingApiGateway
