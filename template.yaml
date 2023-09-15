@@ -29,10 +29,8 @@ Resources:
       Description: Handles scheduling events
       CodeUri: src/
       Handler: app.lambda_handler
-      Runtime: Python3.8
+      Runtime: python3.8
       AutoPublishAlias: current
-      DeploymentsPreference:
-        Type: AllAtOnce
       Environment:
         Variables:
           Test: !Ref test_var
