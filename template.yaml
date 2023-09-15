@@ -1,4 +1,4 @@
-AWSTemplateVersion: "2023-09-13"
+AWSTemplateVersion: 2010-09-09
 Transform: AWS::Serverless-2023-09-13
 Description: >
   scheduling
@@ -11,10 +11,6 @@ Globals:
 
 Parameters:
   environment:
-    Type: String
-  deploymentRole:
-    Type: String
-  lambdaRole:
     Type: String
   test_var:
     Type: String
@@ -37,11 +33,9 @@ Resources:
       AutoPublishAlias: current
       DeploymentsPreference:
         Type: AllAtOnce
-        Role: !Ref deploymentRole
       Environment:
         Variables:
           Test: !Ref test_var
-      Role: !Ref lambdaRole
       Events:
         SchedulingApiGetSchedule:
           Type: Api
