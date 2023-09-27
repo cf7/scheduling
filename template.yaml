@@ -29,7 +29,7 @@ Resources:
       Description: Handles scheduling events
       CodeUri: src/
       Handler: app.lambda_handler
-      Runtime: python3.8
+      Runtime: python3.9
       AutoPublishAlias: current
       Environment:
         Variables:
@@ -38,7 +38,7 @@ Resources:
         SchedulingApiGetSchedule:
           Type: Api
           Properties:
-            Path: /schedule
+            Path: /schedule/{schedule_id}
             Method: get
             RestApiId:
               Ref: SchedulingApiGateway
