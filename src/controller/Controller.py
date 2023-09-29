@@ -1,6 +1,13 @@
 from routes.Routes import HTTP_Method
 
 
+"""
+
+API Layer responsible solely for
+handling routing and returning responses
+"""
+
+
 class Controller:
     def __init__(self, route_factory):
         self.route_factory = route_factory
