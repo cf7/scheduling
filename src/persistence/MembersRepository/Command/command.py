@@ -3,18 +3,14 @@ from models.update.Member.UpdateMember import UpdateMember
 from models.entities.Member.Member import Member
 
 
-class Member_DAO:
+class MembersCommand:
     def __init__(self):
-        pass
+        ...
 
     @staticmethod
-    def get_member(member_id: int) -> Member:
+    def create_members(create_members: CreateMember) -> Member:
         return None
 
     @staticmethod
-    def create_member(create_member: CreateMember) -> Member:
-        return None
-
-    @staticmethod
-    def update_member(update_member: UpdateMember) -> Member:
+    def update_members(update_members: UpdateMember) -> Member:
         return None

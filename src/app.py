@@ -1,7 +1,7 @@
 import json
 import pydantic
-from controller.Controller import Controller
-from routes.Routes import route_factory
+from api.API import API
+from api.routes.Routes import route_factory
 
 
 def lambda_handler(event, context):
@@ -9,22 +9,22 @@ def lambda_handler(event, context):
 
     print("event: ", event)
 
-    print("Controller: ", Controller)
+    print("api: ", api)
 
-    controller = Controller.get_instance(route_factory)
+    api = API.get_instance(route_factory)
 
-    return controller.controller_action(event)
+    return api.api_action(event)
 
 
 """
 API Architecture Overview:
 
 app.lambda_handler
-    --> Controller (API layer)
-        --> Domain Service layer (Business logic)
-            --> Repository layer (Entity logic)
-                --> DAO layer (access DB)
-                    --> persistance layer (DB)
+    --> API layer
+        --> Business logic layer (service or Use Cases: depending on architecture)
+            --> Repository layer (Entity manipulation logic)
+                --> Entity layer (domain specific models)
+                    --> persistence layer (DAO or ORM: depending on architecture)
 """
 
 """

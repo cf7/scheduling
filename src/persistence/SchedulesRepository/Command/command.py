@@ -1,3 +1,4 @@
+from typing import List
 from entities.create.Schedule.CreateSchedule import CreateSchedule
 from entities.models.Schedule.Schedule import Schedule
 
@@ -14,11 +15,13 @@ and then delegates access to the repository layer.
 
 class ScheduleCommand:
     @staticmethod
-    def create_schedule(create_schedule: CreateSchedule) -> Schedule:
+    def create_schedules(create_schedules: List[CreateSchedule]) -> List[Schedule]:
         # access DB and mutate data
-        return Schedule(
-            id=1,
-            name="Created Schedule",
-            timezone="America/Los_Angeles",
-            url="https://example.com/schedule?id=1",
-        )
+        return [
+            Schedule(
+                id=1,
+                name="Created Schedule",
+                timezone="America/Los_Angeles",
+                url="https://example.com/schedule?id=1",
+            )
+        ]

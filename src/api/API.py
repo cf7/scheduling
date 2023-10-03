@@ -7,8 +7,24 @@ API Layer responsible solely for
 handling routing and returning responses
 """
 
+"""
+Design Decision:
 
-class Controller:
+- move away from class based Controllers (which are old)
+and instead use Minimal API approach which is method based
+
+- basically Minimal API's defines a map and injects route-specific
+dependencies into each handler route to use to process the request
+
+- this minimizes the number of services and resources being initialized
+on each run
+
+- hence, services also need to be split up to be domain-specific so
+they can be provided separately to each route method
+"""
+
+
+class API:
     def __init__(self, route_factory):
         self.route_factory = route_factory
 
@@ -20,7 +36,7 @@ class Controller:
         handlers_by_method = self.route_factory.get(http_method)
         return handlers_by_method.get(resource_path)
 
-    def controller_action(self, event):
+    def api_action(self, event):
         http_method = event.get("httpMethod")
         resource_path = event.get("requestContext").get("resourcePath")
         print("method: ", http_method)

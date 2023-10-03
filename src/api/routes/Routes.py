@@ -1,6 +1,6 @@
 from enum import Enum
-
-from service.ScheduleService import ScheduleService
+from service.Member.MemberService import MemberService
+from service.Schedule.ScheduleService import ScheduleService
 
 
 """
@@ -29,9 +29,17 @@ class Request:
 
 route_factory = {
     "GET": {
-        "/schedule/{schedule_id}": ScheduleService.get_schedule,
+        "/schedules/{schedule_id}": ScheduleService.get_schedule,
     },
-    "POST": {"/schedule": ScheduleService.create_schedule},
-    "PUT": {},
+    "POST": {
+        "/schedules": ScheduleService.create_schedules,
+        "/members": MemberService.create_members,
+    },
+    "PUT": {"/slots": lambda x: x},
     "DELETE": {},
 }
+
+"""
+Design Decision
+- always make endpoints bulk operations to future proof
+"""

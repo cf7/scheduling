@@ -1,7 +1,8 @@
 from entities.create.Schedule.CreateSchedule import CreateSchedule
 from entities.update.Schedule.UpdateSchedule import UpdateSchedule
 from entities.models.Schedule.Schedule import Schedule
-from persistence.ScheduleRepository.Query.query import ScheduleQuery
+from persistence.SchedulesRepository.Command.command import ScheduleCommand
+from persistence.SchedulesRepository.Query.query import ScheduleQuery
 
 """
 Domain Driven Design with Repository Pattern
@@ -44,22 +45,22 @@ Persistance layer
 """
 
 
-class ScheduleRepository:
+class SchedulesRepository:
     def __init__(self):
         ...
 
     # provide and use DB connection here
 
-    @staticmethod
-    def get_schedule(schedule_id: int) -> Schedule:
-        # call DAO's from CQRS layer here
+    # build aggregates here
 
+    @staticmethod
+    def get_schedules(schedule_ids: List[int]) -> List[Schedule]:
         # mock schedule entity
-        return ScheduleQuery.get_schedule(schedule_id)
+        return ScheduleQuery.get_schedules(schedule_ids)
 
     @staticmethod
-    def create_schedule(create_schedule: CreateSchedule) -> Schedule:
-        return None
+    def create_schedules(create_schedules: List[CreateSchedule]) -> List[Schedule]:
+        return ScheduleCommand.create_schedules(create_schedules)
 
     @staticmethod
     def update_schedule(update_schedule: UpdateSchedule) -> Schedule:
@@ -128,4 +129,18 @@ are done as transactions, and that the operations happen in order
 even when multiple different repositories are trying to connect
 to the Database
 
+"""
+
+
+"""
+
+Design Decision: use Clean Architecture
+- replaces service layer with a Use Cases layer
+- allows you to define the repository layer inside the domain layer
+- which provides affordance of constraining domains to only be used
+by Use Case logic (business logic) in very specific ways (and disallowing all others)
+- basically you don't have to initialize an entire repository and all its methods
+- you can just implement/include the repository methods that the Use Case needs
+- downside is you duplicate code (repository methods) across Use Cases, although
+there are some clever ways to mitigate this
 """
