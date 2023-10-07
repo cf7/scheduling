@@ -1,3 +1,11 @@
+from typing import List
+from entities.create.Member.CreateMember import CreateMember
+from entities.models.Member.Member import Member
+from entities.update.Member.UpdateMember import UpdateMember
+from persistence.MembersRepository.Command.command import MembersCommand
+from persistence.MembersRepository.Query.query import MembersQuery
+
+
 class MembersRepository:
     def __init__():
         ...

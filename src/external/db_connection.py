@@ -13,3 +13,11 @@ don't use ORM's
 - they are bloated
 - they don't let you learn actual SQL
 """
+
+
+"""
+use DyanamoDB
+- very flexible
+- pay by scale (vs AWS RDS which is pay for fixed size --> unused space)
+- integrates really well with other cloud services
+"""

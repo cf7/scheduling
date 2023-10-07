@@ -8,5 +8,5 @@ class Schedule(BaseModel):
     timezone: str
     url: str
 
-    # start_time_constraint: Optional[str]
-    # end_time_constraint: Optional[str]
+    start_time_constraint: Optional[str]
+    end_time_constraint: Optional[str]

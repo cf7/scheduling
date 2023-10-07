@@ -1,6 +1,6 @@
-from models.create.Member.CreateMember import CreateMember
-from models.update.Member.UpdateMember import UpdateMember
-from models.entities.Member.Member import Member
+from typing import List
+
+from entities.models.Member.Member import Member
 
 
 class MembersQuery:
@@ -9,4 +9,4 @@ class MembersQuery:
 
     @staticmethod
     def get_members(member_ids: List[int]) -> List[Member]:
-        return None
+        return Member(id=1, name="test user", schedule_id=1, slot_ids=[])

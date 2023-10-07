@@ -1,7 +1,3 @@
-from repository.member.member_DAO import member_DAO
-from models.create.member.Createmember import Createmember
-from models.entities.member.member import member
-
 """
 Connect Service Layer to Repository Layer
 
@@ -13,15 +9,23 @@ and then delegates access to the repository layer.
 """
 
 
+from entities.create.Member.CreateMember import CreateMember
+from entities.models.Member.Member import Member
+from entities.update.Member.UpdateMember import UpdateMember
+from persistence.MembersRepository.MembersRepository import MembersRepository
+
+
 class MemberService:
     @staticmethod
-    def get_member(member_id: int) -> member:
-        print("member_id: ", member_id)
-        return None
+    def get_member(member_ids: int) -> Member:
+        return MembersRepository.get_members(member_ids)
 
     @staticmethod
-    def create_member(create_member: Createmember) -> member:
+    def create_member(create_members: CreateMember) -> Member:
         # handle business logic here
         # . . .
+        return MembersRepository.create_members(create_members)
 
-        return None
+    @staticmethod
+    def update_member(update_members: UpdateMember) -> Member:
+        return MembersRepository.update_members(update_members)

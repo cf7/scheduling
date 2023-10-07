@@ -1,6 +1,8 @@
-from models.create.Member.CreateMember import CreateMember
-from models.update.Member.UpdateMember import UpdateMember
-from models.entities.Member.Member import Member
+from typing import List
+
+from entities.create.Member.CreateMember import CreateMember
+from entities.models.Member.Member import Member
+from entities.update.Member.UpdateMember import UpdateMember
 
 
 class MembersCommand:
@@ -8,9 +10,9 @@ class MembersCommand:
         ...
 
     @staticmethod
-    def create_members(create_members: CreateMember) -> Member:
-        return None
+    def create_members(create_members: List[CreateMember]) -> Member:
+        return Member(id=1, name="test user", schedule_id=1, slot_ids=[])
 
     @staticmethod
-    def update_members(update_members: UpdateMember) -> Member:
-        return None
+    def update_members(update_members: List[UpdateMember]) -> Member:
+        return Member(id=1, name="test user", schedule_id=1, slot_ids=[])

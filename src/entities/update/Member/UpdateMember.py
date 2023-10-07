@@ -1,5 +1,5 @@
 from pydantic import Field
-from models.entities.Member.Member import Member
+from models.Member.Member import Member
 
 
 class UpdateMember(Member):

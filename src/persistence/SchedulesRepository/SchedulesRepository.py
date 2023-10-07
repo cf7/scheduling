@@ -1,3 +1,4 @@
+from typing import List
 from entities.create.Schedule.CreateSchedule import CreateSchedule
 from entities.update.Schedule.UpdateSchedule import UpdateSchedule
 from entities.models.Schedule.Schedule import Schedule

@@ -1,3 +1,4 @@
+from typing import List
 from entities.models.Schedule.Schedule import Schedule
 
 
@@ -7,6 +8,7 @@ class ScheduleQuery:
 
     @staticmethod
     def get_schedules(schedule_ids: List[int]) -> List[Schedule]:
+        print("schedule_ids: ", schedule_ids)
         return [
             Schedule(
                 id=1,

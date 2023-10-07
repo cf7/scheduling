@@ -1,16 +1,15 @@
-from models.create.Member.CreateMember import CreateMember
-from models.update.Member.UpdateMember import UpdateMember
-from models.entities.Member.Member import Member
+from typing import List
+from entities.models.Member.Member import Member
 
 
-class DatesQuery:
+class DatesCommand:
     def __init__(self):
         ...
 
     @staticmethod
-    def create_member(create_member: CreateMember) -> Member:
+    def create_dates(create_dates: List[CreateDate]) -> Member:
         return None
 
     @staticmethod
-    def update_member(update_member: UpdateMember) -> Member:
+    def update_dates(update_dates: List[UpdateDate]) -> Member:
         return None
