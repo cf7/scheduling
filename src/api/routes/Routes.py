@@ -1,7 +1,6 @@
 from enum import Enum
-from service.Member.MemberService import MemberService
-from service.Schedule.ScheduleService import ScheduleService
-
+from service.Members.MembersService import MembersService
+from service.Schedules.SchedulesService import SchedulesService
 
 """
 Connect Routing Layer to Service Layers
@@ -29,11 +28,11 @@ class Request:
 
 route_factory = {
     "GET": {
-        "/schedules/{schedule_id}": ScheduleService.get_schedule,
+        "/schedules/{schedule_id}": SchedulesService.get_schedules,
     },
     "POST": {
-        "/schedules": ScheduleService.create_schedules,
-        "/members": MemberService.create_members,
+        "/schedules": SchedulesService.create_schedules,
+        "/members": MembersService.create_members,
     },
     "PUT": {"/slots": lambda x: x},
     "DELETE": {},

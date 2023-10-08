@@ -1,5 +1,5 @@
 from pydantic import Field
-from models.Member.Member import Member
+from entities.models.Member.Member import Member
 
 
 class CreateMember(Member):

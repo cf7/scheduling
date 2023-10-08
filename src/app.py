@@ -5,15 +5,17 @@ from api.routes.Routes import route_factory
 
 
 def lambda_handler(event, context):
-    print("lambda_handler")
+    try:
+        print("lambda_handler")
 
-    print("event: ", event)
+        print("event: ", event)
 
-    print("api: ", api)
+        api = API.get_instance(route_factory)
 
-    api = API.get_instance(route_factory)
-
-    return api.api_action(event)
+        return api.api_action(event)
+    except Exception as e:
+        print(e)
+        return None
 
 
 """

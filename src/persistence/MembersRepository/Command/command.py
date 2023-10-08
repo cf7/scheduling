@@ -10,9 +10,9 @@ class MembersCommand:
         ...
 
     @staticmethod
-    def create_members(create_members: List[CreateMember]) -> Member:
-        return Member(id=1, name="test user", schedule_id=1, slot_ids=[])
+    def create_members(create_members: List[CreateMember]) -> List[Member]:
+        return [Member(id=1, name="test user", schedule_id=1, slot_ids=[])]
 
     @staticmethod
-    def update_members(update_members: List[UpdateMember]) -> Member:
-        return Member(id=1, name="test user", schedule_id=1, slot_ids=[])
+    def update_members(update_members: List[UpdateMember]) -> List[Member]:
+        return [Member(id=1, name="test user", schedule_id=1, slot_ids=[])]

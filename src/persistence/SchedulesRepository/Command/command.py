@@ -25,6 +25,8 @@ class ScheduleCommand:
                 name="Created Schedule",
                 timezone="America/Los_Angeles",
                 url="https://example.com/schedule?id=1",
+                start_time_constraint=None,
+                end_time_constraint=None,
             )
         ]
 
@@ -38,5 +40,7 @@ class ScheduleCommand:
                 name="Created Schedule",
                 timezone="America/Los_Angeles",
                 url="https://example.com/schedule?id=1",
+                start_time_constraint=None,
+                end_time_constraint=None,
             )
         ]

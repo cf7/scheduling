@@ -9,5 +9,5 @@ class SlotsQuery:
         ...
 
     @staticmethod
-    def get_slots(slot_ids: List[int]) -> Member:
-        return Slot(id=1)
+    def get_slots(slot_ids: List[int]) -> List[Slot]:
+        return [Slot(id=1, date_id=1)]

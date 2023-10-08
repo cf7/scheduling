@@ -1,6 +1,3 @@
-from routes.Routes import HTTP_Method
-
-
 """
 
 API Layer responsible solely for
@@ -24,6 +21,9 @@ they can be provided separately to each route method
 """
 
 
+from api.routes.Routes import HTTP_Method
+
+
 class API:
     def __init__(self, route_factory):
         self.route_factory = route_factory
@@ -37,6 +37,7 @@ class API:
         return handlers_by_method.get(resource_path)
 
     def api_action(self, event):
+        print("======== api_action")
         http_method = event.get("httpMethod")
         resource_path = event.get("requestContext").get("resourcePath")
         print("method: ", http_method)

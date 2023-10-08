@@ -1,6 +1,6 @@
-from models.create.Member.CreateMember import CreateMember
-from models.update.Member.UpdateMember import UpdateMember
-from models.entities.Member.Member import Member
+from typing import List
+
+from entities.models.Date.Date import Date
 
 
 class DatesQuery:
@@ -8,5 +8,5 @@ class DatesQuery:
         ...
 
     @staticmethod
-    def get_member(member_id: int) -> Member:
-        return None
+    def get_dates(date_ids: List[int]) -> List[Date]:
+        return [Date(id=1, schedule_id=1, date="")]

@@ -1,7 +1,8 @@
-from pydantic import Field
+from pydantic import BaseModel, StrictInt
+from datetime import datetime
 
-from entities.models.Slot.Slot import Slot
 
-
-class CreateSlot(Slot):
-    id: int = Field(exclude=True)
+class CreateSlot(BaseModel):
+    date_id: StrictInt
+    start_time: datetime
+    end_time: datetime

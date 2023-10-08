@@ -15,17 +15,17 @@ from entities.update.Member.UpdateMember import UpdateMember
 from persistence.MembersRepository.MembersRepository import MembersRepository
 
 
-class MemberService:
+class MembersService:
     @staticmethod
-    def get_member(member_ids: int) -> Member:
+    def get_members(member_ids: int) -> Member:
         return MembersRepository.get_members(member_ids)
 
     @staticmethod
-    def create_member(create_members: CreateMember) -> Member:
+    def create_members(create_members: CreateMember) -> Member:
         # handle business logic here
         # . . .
         return MembersRepository.create_members(create_members)
 
     @staticmethod
-    def update_member(update_members: UpdateMember) -> Member:
+    def update_members(update_members: UpdateMember) -> Member:
         return MembersRepository.update_members(update_members)

@@ -1,5 +1,5 @@
 from pydantic import Field
-from models.Schedule.Schedule import Schedule
+from entities.models.Schedule.Schedule import Schedule
 
 
 class CreateSchedule(Schedule):

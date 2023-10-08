@@ -38,7 +38,14 @@ Resources:
         SchedulingApiGetSchedule:
           Type: Api
           Properties:
-            Path: /schedule/{schedule_id}
+            Path: /schedules/{schedule_id}
             Method: get
+            RestApiId:
+              Ref: SchedulingApiGateway
+        SchedulingApiPostSchedule:
+          Type: Api
+          Properties:
+            Path: /schedules
+            Method: post
             RestApiId:
               Ref: SchedulingApiGateway

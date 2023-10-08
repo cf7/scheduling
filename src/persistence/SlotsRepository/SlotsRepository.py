@@ -18,6 +18,7 @@ class SlotsRepository:
 
     @staticmethod
     def create_slots(create_slots: List[CreateSlot]) -> List[Slot]:
+        print("create slots repository")
         return SlotsCommand.create_slots(create_slots)
 
     @staticmethod

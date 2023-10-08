@@ -1,7 +1,7 @@
-from pydantic import Field
+from datetime import datetime
+from pydantic import BaseModel, StrictInt
 
-from entities.models.Date.Date import Date
 
-
-class CreateDate(Date):
-    id: int = Field(exclude=True)
+class CreateDate(BaseModel):
+    schedule_id: StrictInt
+    date: datetime
